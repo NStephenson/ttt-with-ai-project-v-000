@@ -27,11 +27,15 @@ class Board
   end
 
   def turn_count
-    cells.count { |cell| cell == "X" || cell == "O" }
+    cells.count { |cell| x_or_o?(cell) }
+  end
+
+  def x_or_o?(cell)
+    cell == 'X' || cell == 'O'
   end
 
   def taken?(position)
-    cells[position.to_i - 1] == "X" || cells[position.to_i - 1] == "O" 
+    cells[position.to_i - 1] == "X" || cells[position.to_i - 1] == "O"
   end
 
   def valid_move?(position)
